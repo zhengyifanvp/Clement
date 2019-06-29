@@ -11,22 +11,20 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <!-- 配置service扫描 -->
     <context:annotation-config/>
-    <!--<context:component-scan base-package="com.senma.manager.service" />-->
+    <context:component-scan base-package="com.clement.service" />
 
     <!-- 配置dubbo -->
     <!-- 提供方应用信息，用于计算依赖关系 -->
-    <dubbo:application name="senma-manager-service" />
+    <dubbo:application name="clement-service" />
 
     <!-- 使用zookeeper注册中心 -->
-    <dubbo:registry protocol="zookeeper" address="192.168.61.136:2181" />
+    <dubbo:registry protocol="zookeeper" address="192.168.10.132:2181" />
 
     <!-- 用dubbo协议在20880端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="20880"/>
 
     <!-- 声明需要暴露的服务接口 -->
-     <!--<dubbo:service interface="com.senma.manager.interfaces.CategoryService"
-     ref="categoryService"/>
+     <dubbo:service interface="com.clement.interfaces.IUserService"
+     ref="userService"/>
 
-    <dubbo:service interface="com.senma.manager.interfaces.ItemService"
-     ref="itemService"/>-->
 </beans>

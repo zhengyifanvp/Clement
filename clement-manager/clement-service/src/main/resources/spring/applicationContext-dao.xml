@@ -30,7 +30,7 @@
     <!-- 配置Mapper扫描 -->
     <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
-        <property name="basePackage" value="com.clement" />
+        <property name="basePackage" value="com.clement.repository" />
         <property name="properties">
             <value>
                 mappers=tk.mybatis.mapper.common.Mapper
