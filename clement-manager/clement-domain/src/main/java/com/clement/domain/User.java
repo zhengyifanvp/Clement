@@ -6,7 +6,6 @@ import tk.mybatis.mapper.annotation.KeySql;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.Date;
 @Table(name = "user")
 @Data
 public class User implements Serializable {
@@ -16,6 +15,8 @@ public class User implements Serializable {
     private int id;
     private String username;
     private String password;
-    private Date createtime;
+    private String phone;
+    private String createtime;
+
 
 }

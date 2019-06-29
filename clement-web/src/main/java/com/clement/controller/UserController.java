@@ -5,12 +5,10 @@ import com.clement.interfaces.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("user")
 public class UserController {
     @Autowired
     private IUserService userService;
@@ -19,7 +17,11 @@ public class UserController {
 
         userService.userAdd(user);
         return new ResponseEntity<>(HttpStatus.CREATED);
-
-
     }
+
+    @GetMapping("/list")
+    public ResponseEntity<String> getString(){
+        return ResponseEntity.status(200).body("fsfsfsfsf");
+    }
+
 }
