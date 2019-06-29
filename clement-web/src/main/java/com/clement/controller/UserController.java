@@ -18,6 +18,8 @@ public class UserController {
     public ResponseEntity<Void> userAdd(User user){
 
         userService.userAdd(user);
+
+
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 

@@ -9,8 +9,10 @@ import lombok.NoArgsConstructor;
 @Getter
 public enum ExceptionEnum {
 
-    EXAMPLE_EXCEPTION(000,"模板错误");
+    EXAMPLE_EXCEPTION(000,"模板错误"),
+    PROGRAM_EXCEPTION(110,"si")
     ;
+
     private int code;
     private String msg;
 }
