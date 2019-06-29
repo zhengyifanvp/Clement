@@ -17,9 +17,7 @@ public class UserService implements IUserService {
     public void userAdd(User user) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String format = simpleDateFormat.format(new Date());
-
         user.setCreatetime(format);
-
         userMapper.insert(user);
 
     }

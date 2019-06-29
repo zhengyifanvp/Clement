@@ -1,3 +1,5 @@
+com\clement\common\enums\ExceptionEnum.class
 com\clement\common\advice\CommonExceptionHandler.class
 com\clement\common\exception\ClmException.class
 com\clement\common\utils\MyMapper.class
+com\clement\common\vo\ExceptionResult.class
