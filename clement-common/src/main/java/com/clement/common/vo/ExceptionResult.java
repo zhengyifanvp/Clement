@@ -1,7 +1,17 @@
 package com.clement.common.vo;
 
 import com.clement.common.enums.ExceptionEnum;
-
+/**
+* @name: ExceptionResult
+*
+* @description: 定义自己返回的结果(body)
+*
+* @author: Yifan Zheng
+*
+* @Date: 2019/6/30
+*
+* @Version：1.0
+**/
 public class ExceptionResult {
     private int status;
     private String message;
