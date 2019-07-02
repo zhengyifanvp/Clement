@@ -128,13 +128,15 @@
     <build>
         <finalName>clement-web</finalName>
         <plugins>
-            <!-- 配置Tomcat插件 -->
+             <!--配置Tomcat插件-->
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <configuration>
+
                     <port>80</port>
                     <path>/</path>
+
                 </configuration>
             </plugin>
         </plugins>

@@ -21,7 +21,10 @@ import lombok.NoArgsConstructor;
 public enum ExceptionEnum {
 
     EXAMPLE_EXCEPTION(000, "模板错误"),
-    PROGRAM_EXCEPTION(110, "si");
+    PROGRAM_EXCEPTION(400, "用戶名不可用"),
+    NOTEXIST_EXCEPTION(400,"用戶不存在"),
+    PASSWORDERROR_EXCEOTION(400,"密碼錯誤")
+    ;
 
     private int code;
     private String msg;
