@@ -2,6 +2,7 @@ package com.clement.controller;
 
 import com.clement.common.enums.ExceptionEnum;
 import com.clement.common.exception.ClmException;
+import com.clement.domain.PageResult;
 import com.clement.domain.User;
 import com.clement.interfaces.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,8 @@ public class UserController {
     public ResponseEntity<Void> userAdd(User user){
 
         userService.userAdd(user);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        /*return new ResponseEntity<>(HttpStatus.CREATED);*/
+        throw new ClmException(ExceptionEnum.PASSWORDERROR_EXCEOTION);
     }
 
     @GetMapping("/list")
@@ -41,6 +43,23 @@ public class UserController {
     public ResponseEntity<Void> updateUser(User user,String pass){
         userService.updateUser(user,pass);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+    @GetMapping("/list/page")
+    @CrossOrigin
+    public ResponseEntity<PageResult<User>> selectAllUser(
+            @RequestParam(value = "page",defaultValue = "1") Integer page,
+            @RequestParam(value = "rows",defaultValue = "5") Integer rows,
+            @RequestParam(value = "sortBy",required = false) String sortBy,
+            @RequestParam(value = "desc",defaultValue = "false") Boolean desc
+            ){
+        PageResult<User> result =this.userService.selectAllUser(page,rows,sortBy,desc);
+        if(result == null || result.getUsers().size()==0){
+
+            return new ResponseEntity<>(HttpStatus.CREATED);
+
+        }
+        return ResponseEntity.ok(result);
+
     }
 
 

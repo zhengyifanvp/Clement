@@ -1,6 +1,8 @@
 package com.clement.common.vo;
 
 import com.clement.common.enums.ExceptionEnum;
+import lombok.Data;
+
 /**
 * @name: ExceptionResult
 *
@@ -12,6 +14,7 @@ import com.clement.common.enums.ExceptionEnum;
 *
 * @Version：1.0
 **/
+@Data
 public class ExceptionResult {
     private int status;
     private String message;

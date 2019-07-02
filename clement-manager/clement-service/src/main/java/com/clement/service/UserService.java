@@ -1,11 +1,15 @@
 package com.clement.service;
 
+import com.alibaba.dubbo.container.page.PageHandler;
 import com.clement.common.enums.ExceptionEnum;
 import com.clement.common.exception.ClmException;
+import com.clement.domain.PageResult;
 import com.clement.domain.User;
 import com.clement.interfaces.IUserService;
 import com.clement.repository.UserMapper;
-import org.apache.ibatis.annotations.Param;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
@@ -39,7 +43,7 @@ public class UserService implements IUserService {
      * @Date: 2019/6/29
      */
     @Override
-    public void userAdd(User user) {
+    public void userAdd(User user){
         Example example = new Example(User.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("username",user.getUsername());
@@ -124,6 +128,28 @@ public class UserService implements IUserService {
             }else{
                 throw new ClmException(ExceptionEnum.PASSWORDERROR_EXCEOTION);
             }
+
+
+        }
+
+        public PageResult<User> selectAllUser(Integer page,Integer rows,String sortBy,Boolean desc){
+            //开始分页
+            PageHelper.startPage(page,rows);
+            //过滤
+            Example example=new Example(User.class);
+            if(StringUtils.isNotBlank(sortBy)){
+                //排序
+                String orderByClause =sortBy + (desc ?"DESC":"ASC");
+                example.setOrderByClause(orderByClause);
+
+            }
+            //查询
+            List<User> list =userMapper.selectByExample(example);
+            //解析分页结果
+            PageInfo<User> pageInfo=new PageInfo<>(list);
+            //返回结果
+            return new PageResult<>(pageInfo.getTotal(),list);
+
 
 
         }
