@@ -79,20 +79,21 @@ public class UserService implements IUserService {
     * @Author: KeXin Xu
     * @Date: 2019/7/1
     */
-    public void userLogin(User user) {
+    public void userLogin(String username,String password) {
         // 创建Example
         Example example = new Example(User.class);
         // 创建Criteria
         Example.Criteria criteria = example.createCriteria();
         // 添加条件
-        criteria.andEqualTo("username", user.getUsername());
+        criteria.andEqualTo("username", username);
         //通過條件查詢user
         List<User> list = userMapper.selectByExample(example);
 
         if(list.size()==0){
             throw new ClmException(ExceptionEnum.NOTEXIST_EXCEPTION);
 
-        }else if ((list.get(0).getPassword()).equals(user.getPassword())) {
+        }/*else if ((list.get(0).getPassword()).equals(user.getPassword())) {*/
+            else if ((list.get(0).getPassword()).equals(password)) {
 
 
         }else{
@@ -131,20 +132,30 @@ public class UserService implements IUserService {
 
 
         }
+    /**
+     * @methodName: selectAllUser
+     * @Description: 查询所有用户
+     * @Param: [page, rows, sortBy, desc]
+     * @return: com.clement.domain.PageResult<com.clement.domain.User>
+     * @Author: KeXin Xu
+     * @Date: 2019/7/3
+     */
+    public PageResult<User> selectAllUser(Integer page,Integer rows,String sortBy,Boolean desc){
 
-        public PageResult<User> selectAllUser(Integer page,Integer rows,String sortBy,Boolean desc){
             //开始分页
             PageHelper.startPage(page,rows);
             //过滤
             Example example=new Example(User.class);
             if(StringUtils.isNotBlank(sortBy)){
                 //排序
-                String orderByClause =sortBy + (desc ?"DESC":"ASC");
+                String orderByClause =sortBy + (desc ? " DESC" : " ASC");
                 example.setOrderByClause(orderByClause);
 
             }
             //查询
-            List<User> list =userMapper.selectByExample(example);
+            //List<User> list =userMapper.selectByExample(example);
+            List<User> list = userMapper.selectByExample(example);
+
             //解析分页结果
             PageInfo<User> pageInfo=new PageInfo<>(list);
             //返回结果

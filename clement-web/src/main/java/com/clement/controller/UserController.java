@@ -22,8 +22,8 @@ public class UserController {
     public ResponseEntity<Void> userAdd(User user){
 
         userService.userAdd(user);
-        /*return new ResponseEntity<>(HttpStatus.CREATED);*/
-        throw new ClmException(ExceptionEnum.PASSWORDERROR_EXCEOTION);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+        /*throw new ClmException(ExceptionEnum.PASSWORDERROR_EXCEOTION);*/
     }
 
     @GetMapping("/list")
@@ -32,13 +32,13 @@ public class UserController {
         return ResponseEntity.status(200).body("fsfsfsfsf");
     }
 
-    @GetMapping("/login")
+    @GetMapping("")
     @CrossOrigin
-    public ResponseEntity<Void> userLogin(User user){
-        userService.userLogin(user);
+    public ResponseEntity<Void> userLogin(String username,String password){
+        userService.userLogin(username,password);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-    @PostMapping("/update")
+    @PutMapping("")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        @PostMapping("/update")
     @CrossOrigin
     public ResponseEntity<Void> updateUser(User user,String pass){
         userService.updateUser(user,pass);

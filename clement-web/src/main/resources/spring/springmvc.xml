@@ -29,6 +29,8 @@
     <!-- 声明要调用的服务，timeout是设置连接超时最长时间,如果不设置，超时时间默认是3秒 -->
      <dubbo:reference id="userService" interface="com.clement.interfaces.IUserService"
       timeout="1000000" />
+    <dubbo:reference id="menuService" interface="com.clement.interfaces.IMenuService"
+                     timeout="1000000" />
 
 <!--
      <dubbo:reference id="itemService" interface="com.senma.manager.interfaces.ItemService"
