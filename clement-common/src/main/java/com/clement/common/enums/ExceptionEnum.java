@@ -23,7 +23,10 @@ public enum ExceptionEnum {
     EXAMPLE_EXCEPTION(000, "模板错误"),
     PROGRAM_EXCEPTION(400, "用戶名不可用"),
     NOTEXIST_EXCEPTION(400,"用戶不存在"),
-    PASSWORDERROR_EXCEOTION(400,"密碼錯誤")
+    PASSWORDERROR_EXCEOTION(400,"密碼錯誤"),
+    PRICE_EXCEPTION(400,"价格错误"),
+    MENUEXIST_EXCEPTION(400,"菜品存在"),
+    MENUNAME_EXCEPTION(400,"菜品名稱錯誤")
     ;
 
     private int code;
