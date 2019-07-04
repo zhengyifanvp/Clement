@@ -52,8 +52,8 @@ public class MenuController {
 
     @DeleteMapping
     @CrossOrigin
-    public ResponseEntity<Void> deleteMenu(@RequestBody Integer menuid){
-        menuService.deleteMenu(menuid);
+    public ResponseEntity<Void> deleteMenu(@RequestBody Menu menu){
+        menuService.deleteMenu(menu);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

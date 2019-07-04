@@ -71,8 +71,8 @@ public class MenuService implements IMenuService {
     }
 
     @Override
-    public void deleteMenu(Integer menuid) {
-        menuMapper.deleteByPrimaryKey(menuid);
+    public void deleteMenu(Menu menu) {
+        menuMapper.deleteByPrimaryKey(menu.getMenuid());
     }
 
     @Override

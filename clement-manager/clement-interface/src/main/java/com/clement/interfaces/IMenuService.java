@@ -7,6 +7,6 @@ import com.clement.domain.PageResult1;
 public interface IMenuService {
     PageResult1<Menu> selectAllMenu(Integer page, Integer rows, String sortBy, Boolean desc);
     void updateMenu(Menu menu);
-    void deleteMenu(Integer menuid);
+    void deleteMenu(Menu menu);
     void addMenu();
 }
