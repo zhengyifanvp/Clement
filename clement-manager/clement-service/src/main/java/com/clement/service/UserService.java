@@ -3,6 +3,7 @@ package com.clement.service;
 import com.alibaba.dubbo.container.page.PageHandler;
 import com.clement.common.enums.ExceptionEnum;
 import com.clement.common.exception.ClmException;
+import com.clement.domain.Menu;
 import com.clement.domain.PageResult;
 import com.clement.domain.User;
 import com.clement.interfaces.IUserService;
@@ -102,15 +103,14 @@ public class UserService implements IUserService {
 
         }
     /**
-     * @methodName: updateUser
+     * @methodName: updatePass
      * @Description: 修改密码
      * @Param: [user, pass]
      * @return: void
      * @Author: KeXin Xu
      * @Date: 2019/7/2
      */
-    public void updateUser(User user,String pass){
-
+    public void updatePass(User user,String pass){
             // 创建Example
             Example example = new Example(User.class);
             // 创建Criteria
@@ -164,7 +164,28 @@ public class UserService implements IUserService {
 
 
         }
-    }
+    /**
+     * @methodName: updateUser
+     * @Description: 修改用户信息
+     * @Param: [user]
+     * @return: void
+     * @Author: KeXin Xu
+     * @Date: 2019/7/4
+     */
+    @Override
+    public void updateUser(User user) {
+            Integer userid = user.getUserid();
+            User newUser = new User();
+            newUser.setUserid(userid);
+            newUser.setUsername(user.getUsername());
+            newUser.setPhone(user.getPhone());
+            newUser.setPassword(user.getPassword());
+            newUser.setCreatetime(user.getCreatetime());
+            userMapper.updateByPrimaryKey(newUser);
+        }
+
+
+}
 
 
 

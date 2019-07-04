@@ -6,6 +6,7 @@ import tk.mybatis.mapper.annotation.KeySql;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+
 @Table(name = "menu")
 @Data
 public class Menu implements Serializable {
@@ -16,5 +17,4 @@ public class Menu implements Serializable {
     private Integer menuid;
     private String menuname;
     private Float menuprice;
-    private Integer menuflag;
 }
