@@ -109,5 +109,21 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    /**
+     * @methodName: deleteUser
+     * @Description: 删除用户
+     * @Param: [user]
+     * @return: org.springframework.http.ResponseEntity<java.lang.Void>
+     * @Author: KeXin Xu
+     * @Date: 2019/7/4
+     */
+    @DeleteMapping("")
+    @CrossOrigin
+    public ResponseEntity<Void> deleteUser(@RequestBody User user){
+
+        userService.deleteUser(user);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 
 }

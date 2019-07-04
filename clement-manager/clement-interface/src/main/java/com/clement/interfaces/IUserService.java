@@ -10,4 +10,5 @@ public interface IUserService {
     void updatePass(User user,String pass);
     PageResult<User> selectAllUser(Integer page,Integer rows,String sortBy,Boolean desc);
     void updateUser(User user);
+    void deleteUser(User user);
 }

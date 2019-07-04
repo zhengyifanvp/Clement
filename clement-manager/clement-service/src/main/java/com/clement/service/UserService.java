@@ -184,6 +184,20 @@ public class UserService implements IUserService {
             userMapper.updateByPrimaryKey(newUser);
         }
 
+    /**
+     * @methodName: deleteUser
+     * @Description: 删除用户
+     * @Param: [user]
+     * @return: void
+     * @Author: KeXin Xu
+     * @Date: 2019/7/4
+     */
+    @Override
+    public void deleteUser(User user) {
+
+        userMapper.deleteByPrimaryKey(user.getUserid());
+    }
+
 
 }
 

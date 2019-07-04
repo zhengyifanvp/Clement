@@ -41,7 +41,7 @@ public class MenuController {
 
 
     /**
-     * @methodName: editMenu
+     * @methodName: updateMenu
      * @Description: 修改菜品信息的controller
      * @Param: [menu]
      * @return: org.springframework.http.ResponseEntity<java.lang.Void>
@@ -50,7 +50,7 @@ public class MenuController {
      */
     @PutMapping
     @CrossOrigin
-    public ResponseEntity<Void> editMenu(@RequestBody Menu menu){
+    public ResponseEntity<Void> updateMenu(@RequestBody Menu menu){
         menuService.updateMenu(menu);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
