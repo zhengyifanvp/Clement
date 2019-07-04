@@ -50,7 +50,7 @@ public class MenuController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @DeleteMapping
+    @DeleteMapping("")
     @CrossOrigin
     public ResponseEntity<Void> deleteMenu(@RequestBody Menu menu){
         menuService.deleteMenu(menu);
