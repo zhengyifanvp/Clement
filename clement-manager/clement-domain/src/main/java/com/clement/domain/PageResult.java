@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.util.List;
+
 /**
  * @methodName: PageResult
  * @Description: 分页实体类
@@ -22,10 +23,10 @@ public class PageResult<T> implements Serializable {
     private long totalPage;
     private List<T> users;
 
-    public PageResult(long total,List<T> users){
+    public PageResult(long total, List<T> users) {
 
-        this.total=total;
-        this.users=users;
+        this.total = total;
+        this.users = users;
 
     }
 }

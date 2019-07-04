@@ -2,7 +2,7 @@ package com.clement.service;
 
 import com.clement.domain.Menu;
 import com.clement.domain.PageResult;
-import com.clement.domain.User;
+import com.clement.domain.PageResult1;
 import com.clement.interfaces.IMenuService;
 import com.clement.repository.MenuMapper;
 import com.github.pagehelper.PageHelper;
@@ -27,7 +27,7 @@ public class MenuService implements IMenuService {
      * @Date: 2019/7/3
      */
     @Override
-    public PageResult<Menu> selectAllMenu(Integer page, Integer rows, String sortBy, Boolean desc){
+    public PageResult1<Menu> selectAllMenu(Integer page, Integer rows, String sortBy, Boolean desc){
 
         //开始分页
         PageHelper.startPage(page,rows);
@@ -45,19 +45,34 @@ public class MenuService implements IMenuService {
         //解析分页结果
         PageInfo<Menu> pageInfo=new PageInfo<>(list);
         //返回结果
-        return new PageResult<>(pageInfo.getTotal(),list);
+        return new PageResult1<>(pageInfo.getTotal(),list);
 
 
 
     }
-    @Override
-    public void updateMenu() {
 
+    /**
+     * @methodName: updateMenu
+     * @Description: 更新菜品信息的具体业务逻辑
+     * @Param: [menu]
+     * @return: void
+     * @Author: Yifan Zheng
+     * @Date: 2019/7/4
+     */
+    @Override
+    public void updateMenu(Menu menu) {
+        Integer menuid = menu.getMenuid();
+        Menu newMenu = new Menu();
+        newMenu.setMenuid(menuid);
+        newMenu.setMenuname(menu.getMenuname());
+        newMenu.setMenuprice(menu.getMenuprice());
+        newMenu.setMenuflag(menu.getMenuflag());
+        menuMapper.updateByPrimaryKey(newMenu);
     }
 
     @Override
-    public void deleteMenu() {
-
+    public void deleteMenu(Integer menuid) {
+        menuMapper.deleteByPrimaryKey(menuid);
     }
 
     @Override

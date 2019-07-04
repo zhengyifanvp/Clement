@@ -13,7 +13,7 @@ public class User implements Serializable {
 
     @Id
     @KeySql(useGeneratedKeys = true)
-    private int userid;
+    private Integer userid;
     private String username;
     private String password;
     private String phone;

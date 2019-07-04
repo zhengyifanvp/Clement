@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     @Autowired
     private IUserService userService;
+
     @PostMapping("")
     @CrossOrigin
     public ResponseEntity<Void> userAdd(User user){
@@ -53,11 +54,11 @@ public class UserController {
             @RequestParam(value = "desc",defaultValue = "false") Boolean desc
             ){
         PageResult<User> result =this.userService.selectAllUser(page,rows,sortBy,desc);
-        if(result == null || result.getUsers().size()==0){
-
-            return new ResponseEntity<>(HttpStatus.CREATED);
-
-        }
+//        if(result == null || result.getMenu().size()==0){
+//
+//            return new ResponseEntity<>(HttpStatus.OK);
+//
+//        }
         return ResponseEntity.ok(result);
 
     }

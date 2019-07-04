@@ -24,7 +24,7 @@
     <!-- 配置dubbo服务 -->
     <dubbo:application name="clement-web" />
 
-    <dubbo:registry protocol="zookeeper" address="192.168.10.132:2181" />
+    <dubbo:registry protocol="zookeeper" address="192.168.61.136:2181" />
 
     <!-- 声明要调用的服务，timeout是设置连接超时最长时间,如果不设置，超时时间默认是3秒 -->
      <dubbo:reference id="userService" interface="com.clement.interfaces.IUserService"

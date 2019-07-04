@@ -9,12 +9,12 @@ import java.io.Serializable;
 @Table(name = "menu")
 @Data
 public class Menu implements Serializable {
-    private static final long serialVersionUID = -99603059570700245L;
+    private static final long serialVersionUID = -99603059570700246L;
 
     @Id
     @KeySql(useGeneratedKeys = true)
-    private int menuId;
-    private String menuName;
-    private float menuPrice;
-    private int muenuFlag;
+    private Integer menuid;
+    private String menuname;
+    private Float menuprice;
+    private Integer menuflag;
 }

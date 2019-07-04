@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
  * @Version：1.0
  **/
 @ControllerAdvice
-public class CommonExceptionHandler {
+public class CommonExceptionHandler {//handleException
     @ExceptionHandler(ClmException.class)
     public ResponseEntity<ExceptionResult> handleException(ClmException e) {
         return ResponseEntity.status(e.getExceptionEnum().getCode())
