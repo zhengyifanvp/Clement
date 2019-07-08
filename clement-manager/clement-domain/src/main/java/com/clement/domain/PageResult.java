@@ -6,13 +6,16 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @methodName: PageResult
- * @Description: 分页实体类
- * @Param: [total, items]
- * @return:
- * @Author: KeXin Xu
- * @Date: 2019/7/2
- */
+* @name: PageResult
+*
+* @description: 用户分页实体类
+*
+* @author: KeXin Xu
+*
+* @Date: 2019/7/8
+*
+* @Version：1.0
+**/
 @Data
 public class PageResult<T> implements Serializable {
 

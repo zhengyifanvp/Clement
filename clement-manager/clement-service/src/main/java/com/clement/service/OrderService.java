@@ -12,20 +12,49 @@ import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
+
+/**
+ * @name: OrderService
+ *
+ * @description: 订单服务类
+ *
+ * @author: KeXin Xu
+ *
+ * @Date: 2019/7/8
+ *
+ * @Version：1.0
+ **/
 @Service(value = "orderService")
 public class OrderService implements IOrderService {
     @Autowired
     private OrderMapper orderMapper;
-
-
+    
+    
+    /**
+     * @methodName: saleOrder
+     * @Description: 购物车
+     * @Param: [orders]
+     * @return: java.lang.Void
+     * @Author: KeXin Xu
+     * @Date: 2019/7/8
+     */
     @Override
     public Void saleOrder(Order orders) {
+        
             orderMapper.insert(orders);
             return null;
     }
-
+    /**
+     * @methodName: selectOrder
+     * @Description: 分页查询订单
+     * @Param: [page, rows, sortBy, desc] 
+     * @return: com.clement.domain.orderResult<com.clement.domain.Order> 
+     * @Author: KeXin Xu
+     * @Date: 2019/7/8 
+     */
     @Override
     public orderResult<Order> selectOrder(Integer page, Integer rows, String sortBy,Boolean desc) {
+        
         //开始分页
         PageHelper.startPage(page,rows);
         //过滤

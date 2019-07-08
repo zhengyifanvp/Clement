@@ -8,7 +8,17 @@ import lombok.Setter;
 import java.io.Serializable;
 import java.util.List;
 
-
+/**
+* @name: Result
+*
+* @description: 部分菜单查询类
+*
+* @author: KeXin Xu
+*
+* @Date: 2019/7/8
+*
+* @Version：1.0
+**/
 @Data
 public class Result<T> implements Serializable {
 

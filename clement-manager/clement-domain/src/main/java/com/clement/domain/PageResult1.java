@@ -8,14 +8,15 @@ import lombok.Setter;
 import java.io.Serializable;
 import java.util.List;
 
+
 /**
 * @name: PageResult1
 *
-* @description: 菜品分页查询的pageResult
+* @description: 菜单分页实体类
 *
-* @author: Yifan Zheng
+* @author: KeXin Xu
 *
-* @Date: 2019/7/4
+* @Date: 2019/7/8
 *
 * @Version：1.0
 **/

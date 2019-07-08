@@ -33,12 +33,6 @@ public class UserController {
 
     }
 
-    /*@GetMapping("/list")
-    public ResponseEntity<String> getString(){
-
-        return ResponseEntity.status(200).body("fsfsfsfsf");
-    }*/
-
 
     /**
      * @methodName: userLogin

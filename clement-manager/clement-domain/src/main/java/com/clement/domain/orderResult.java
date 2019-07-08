@@ -5,7 +5,17 @@ import lombok.Data;
 import java.io.Serializable;
 import java.util.List;
 
-
+/**
+* @name: orderResult
+*
+* @description: 订单分页实体类
+*
+* @author: KeXin Xu
+*
+* @Date: 2019/7/8
+*
+* @Version：1.0
+**/
 @Data
 public class orderResult<T> implements Serializable {
 
