@@ -1,6 +1,9 @@
 package com.clement.domain;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.List;
@@ -31,4 +34,5 @@ public class PageResult1<T> implements Serializable {
         this.menus = menus;
 
     }
+
 }

@@ -26,5 +26,7 @@
                     ref="userService"/>
     <dubbo:service interface="com.clement.interfaces.IMenuService"
                    ref="menuService"/>
+    <dubbo:service interface="com.clement.interfaces.IOrderService"
+                   ref="orderService"/>
 
 </beans>

@@ -2,11 +2,10 @@ package com.clement.service;
 
 import com.clement.common.enums.ExceptionEnum;
 import com.clement.common.exception.ClmException;
-import com.clement.domain.Menu;
-import com.clement.domain.PageResult1;
-import com.clement.domain.User;
+import com.clement.domain.*;
 import com.clement.interfaces.IMenuService;
 import com.clement.repository.MenuMapper;
+import com.clement.repository.OrderMapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.apache.commons.lang3.StringUtils;
@@ -14,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.ArrayList;
 import java.util.List;
 /**
 * @name: MenuService
@@ -30,6 +30,7 @@ import java.util.List;
 public class MenuService implements IMenuService {
     @Autowired
     private MenuMapper menuMapper;
+
 
     /**
      * @methodName: selectAllMenu
@@ -124,19 +125,28 @@ public class MenuService implements IMenuService {
             throw new ClmException(ExceptionEnum.MENUNAME_EXCEPTION);
         }
     }
+
     /**
      * @methodName: selectMenu
-     * @Description: 普通查询
+     * @Description:普通查询
      * @Param: []
-     * @return: java.util.List<com.clement.domain.Menu>
+     * @return: java.util.List<com.clement.domain.Menus>
      * @Author: KeXin Xu
-     * @Date: 2019/7/4
+     * @Date: 2019/7/5
      */
     @Override
-    public List<Menu> selectMenu() {
+    public Result<Menus> selectMenu() {
+
 
         List<Menu> menus = menuMapper.selectAll();
+        ArrayList<Menus> menusArrayList = new ArrayList<>();
+        for(Menu menuList:menus){
 
-        return menus;
+            menusArrayList.add(new Menus(menuList.getMenuname(),menuList.getMenuprice()));
+        }
+
+        return new Result<>(menusArrayList);
     }
+
+
 }
